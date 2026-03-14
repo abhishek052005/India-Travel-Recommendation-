@@ -32,7 +32,7 @@ try:
 except Exception:
     popular = None
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# Helpers
 def _s(v) -> str:
     """Cast any value to a plain Python string (handles NaN, numpy types, etc.)."""
     import math
@@ -105,7 +105,8 @@ class PredictRequest(BaseModel):
 @app.post("/predict")
 def predict(req: PredictRequest):
     """Return similar places based on collaborative-filtering similarity matrix."""
-    matches = places[places["Name"] == req.place_name]
+    query = req.place_name.lower().strip()
+    matches = places[places["Name"].str.lower() == query]
     if matches.empty:
         raise HTTPException(status_code=404, detail=f"Place '{req.place_name}' not found.")
 
