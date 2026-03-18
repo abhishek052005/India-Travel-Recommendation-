@@ -53,7 +53,7 @@ The **India Travel Recommender** helps you discover your perfect travel destinat
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/GajendraSingh33/India-Travel-Recommendation.git
+git clone https://github.com/abhishek052005India-Travel-Recommendation.git
 cd India-Travel-Recommendation
 ```
 
